@@ -2,10 +2,10 @@ import java.io.Serializable;
 
 
 /**
- * Класс описывает часть тела, от него
- * унаследованны все остальные части 
+ * ГЉГ«Г Г±Г± Г®ГЇГЁГ±Г»ГўГ ГҐГІ Г·Г Г±ГІГј ГІГҐГ«Г , Г®ГІ Г­ГҐГЈГ®
+ * ГіГ­Г Г±Г«ГҐГ¤Г®ГўГ Г­Г­Г» ГўГ±ГҐ Г®Г±ГІГ Г«ГјГ­Г»ГҐ Г·Г Г±ГІГЁ 
  * 
- * @author Артём Попов
+ * @author ГЂГ°ГІВёГ¬ ГЏГ®ГЇГ®Гў
  *
  * @version 1.0
  */
@@ -13,13 +13,13 @@ import java.io.Serializable;
 public abstract class BodyPart extends Sprite implements Serializable {
 	public static final String BODY_PART_IMAGE_PATH = "/res/parts/";
 	
-	//Информация о тканях
+	//Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГІГЄГ Г­ГїГµ
 	
-	public static final int MEAT_COST = 5; // затраты каждой клеткой единиц энергии
-	public static final int FAT_COST = -2; // жиры позволяют наоборот запасаться энергией
+	public static final int MEAT_COST = 5; // Г§Г ГІГ°Г ГІГ» ГЄГ Г¦Г¤Г®Г© ГЄГ«ГҐГІГЄГ®Г© ГҐГ¤ГЁГ­ГЁГ¶ ГЅГ­ГҐГ°ГЈГЁГЁ
+	public static final int FAT_COST = -2; // Г¦ГЁГ°Г» ГЇГ®Г§ГўГ®Г«ГїГѕГІ Г­Г Г®ГЎГ®Г°Г®ГІ Г§Г ГЇГ Г±Г ГІГјГ±Гї ГЅГ­ГҐГ°ГЈГЁГҐГ©
 	public static final int SKIN_COST = 1; 
 	
-	public static final int SKIN_WEIGHT = 2; //вес клеток кожи
+	public static final int SKIN_WEIGHT = 2; //ГўГҐГ± ГЄГ«ГҐГІГ®ГЄ ГЄГ®Г¦ГЁ
 	public static final int FAT_WEIGHT = 1;
 	public static final int MEAT_WEIGHT = 3;
 	
@@ -28,27 +28,27 @@ public abstract class BodyPart extends Sprite implements Serializable {
 	public static final int FAT_HOT_RESIST = -1;
 	public static final int SKIN_HOT_RESIST = 2;
 	
-	public static final int MEAT_MATERIAL = 0xff0000; // красный цвет пикселей соответствует тканям мышц
-	public static final int SKIN_MATERIAL = 0x939393; // цвет пикселей для кожи
-	public static final int FAT_MATERIAL = 0x334455; // цвет пикселей для жира
+	public static final int MEAT_MATERIAL = 0xff0000; // ГЄГ°Г Г±Г­Г»Г© Г¶ГўГҐГІ ГЇГЁГЄГ±ГҐГ«ГҐГ© Г±Г®Г®ГІГўГҐГІГ±ГІГўГіГҐГІ ГІГЄГ Г­ГїГ¬ Г¬Г»ГёГ¶
+	public static final int SKIN_MATERIAL = 0x939393; // Г¶ГўГҐГІ ГЇГЁГЄГ±ГҐГ«ГҐГ© Г¤Г«Гї ГЄГ®Г¦ГЁ
+	public static final int FAT_MATERIAL = 0x334455; // Г¶ГўГҐГІ ГЇГЁГЄГ±ГҐГ«ГҐГ© Г¤Г«Гї Г¦ГЁГ°Г 
 	
-	// Конец информации о тканях
+	// ГЉГ®Г­ГҐГ¶ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® ГІГЄГ Г­ГїГµ
 	
 	
-	private int relX, relY; //смещение относительно центра масс тела
-    private int orientation; //ориентация конечности(подробнее см в bodyPartINFO
-    private int weight; //влияет на скорость.
-    private int defence; // уровень защиты от внешних воздейтствий(чем больше клеток кожи, тем выше)
-    private int energyCosts; // затраты этой частью энергии
-    private PartFunction[] avalibleFunctions; // функции, которые способна выполнять эта часть тела
-    private boolean isActive; // активна ли в данный момент часть
+	private int relX, relY; //Г±Г¬ГҐГ№ГҐГ­ГЁГҐ Г®ГІГ­Г®Г±ГЁГІГҐГ«ГјГ­Г® Г¶ГҐГ­ГІГ°Г  Г¬Г Г±Г± ГІГҐГ«Г 
+    private int orientation; //Г®Г°ГЁГҐГ­ГІГ Г¶ГЁГї ГЄГ®Г­ГҐГ·Г­Г®Г±ГІГЁ(ГЇГ®Г¤Г°Г®ГЎГ­ГҐГҐ Г±Г¬ Гў bodyPartINFO
+    private int weight; //ГўГ«ГЁГїГҐГІ Г­Г  Г±ГЄГ®Г°Г®Г±ГІГј.
+    private int defence; // ГіГ°Г®ГўГҐГ­Гј Г§Г Г№ГЁГІГ» Г®ГІ ГўГ­ГҐГёГ­ГЁГµ ГўГ®Г§Г¤ГҐГ©ГІГ±ГІГўГЁГ©(Г·ГҐГ¬ ГЎГ®Г«ГјГёГҐ ГЄГ«ГҐГІГ®ГЄ ГЄГ®Г¦ГЁ, ГІГҐГ¬ ГўГ»ГёГҐ)
+    private int energyCosts; // Г§Г ГІГ°Г ГІГ» ГЅГІГ®Г© Г·Г Г±ГІГјГѕ ГЅГ­ГҐГ°ГЈГЁГЁ
+    private PartFunction[] avalibleFunctions; // ГґГіГ­ГЄГ¶ГЁГЁ, ГЄГ®ГІГ®Г°Г»ГҐ Г±ГЇГ®Г±Г®ГЎГ­Г  ГўГ»ГЇГ®Г«Г­ГїГІГј ГЅГІГ  Г·Г Г±ГІГј ГІГҐГ«Г 
+    private boolean isActive; // Г ГЄГІГЁГўГ­Г  Г«ГЁ Гў Г¤Г Г­Г­Г»Г© Г¬Г®Г¬ГҐГ­ГІ Г·Г Г±ГІГј
     private Creature parent;
     
     /*other properties
      * can be supplemented later
      */
     
-    private int fatCells; //количество клеток жира
+    private int fatCells; //ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЄГ«ГҐГІГ®ГЄ Г¦ГЁГ°Г 
     private int meatCells;
     private int skinCells;
     private int hotResist;  //1-100 
@@ -68,12 +68,12 @@ public abstract class BodyPart extends Sprite implements Serializable {
     	calculateProperties();
     }
     
-    /** используется для расчета затрат энергии,
-     *  веса и других характеристик части тела
-     * части тела
+    /** ГЁГ±ГЇГ®Г«ГјГ§ГіГҐГІГ±Гї Г¤Г«Гї Г°Г Г±Г·ГҐГІГ  Г§Г ГІГ°Г ГІ ГЅГ­ГҐГ°ГЈГЁГЁ,
+     *  ГўГҐГ±Г  ГЁ Г¤Г°ГіГЈГЁГµ ГµГ Г°Г ГЄГІГҐГ°ГЁГ±ГІГЁГЄ Г·Г Г±ГІГЁ ГІГҐГ«Г 
+     * Г·Г Г±ГІГЁ ГІГҐГ«Г 
      */
     private void calculateProperties() {
-    	//подсчет клеток разного типа
+    	//ГЇГ®Г¤Г±Г·ГҐГІ ГЄГ«ГҐГІГ®ГЄ Г°Г Г§Г­Г®ГЈГ® ГІГЁГЇГ 
     	
     	for(int i = 0; i < pixels.length; i++) {
     		switch(pixels[i]) {
@@ -99,8 +99,8 @@ public abstract class BodyPart extends Sprite implements Serializable {
     }
     
     /**
-     * Определяет, какие функции из набора будут
-     * доступны для данной части тела
+     * ГЋГЇГ°ГҐГ¤ГҐГ«ГїГҐГІ, ГЄГ ГЄГЁГҐ ГґГіГ­ГЄГ¶ГЁГЁ ГЁГ§ Г­Г ГЎГ®Г°Г  ГЎГіГ¤ГіГІ
+     * Г¤Г®Г±ГІГіГЇГ­Г» Г¤Г«Гї Г¤Г Г­Г­Г®Г© Г·Г Г±ГІГЁ ГІГҐГ«Г 
      */
     protected abstract void unlockFunctions();
     
@@ -124,10 +124,10 @@ public abstract class BodyPart extends Sprite implements Serializable {
     	return parent;
     }
     
-    /*описаниие функций части тела
-     *с помощью этого класса будет
-     *определятся, доступна ли та или 
-     *иная функция
+    /*Г®ГЇГЁГ±Г Г­ГЁГЁГҐ ГґГіГ­ГЄГ¶ГЁГ© Г·Г Г±ГІГЁ ГІГҐГ«Г 
+     *Г± ГЇГ®Г¬Г®Г№ГјГѕ ГЅГІГ®ГЈГ® ГЄГ«Г Г±Г±Г  ГЎГіГ¤ГҐГІ
+     *Г®ГЇГ°ГҐГ¤ГҐГ«ГїГІГ±Гї, Г¤Г®Г±ГІГіГЇГ­Г  Г«ГЁ ГІГ  ГЁГ«ГЁ 
+     *ГЁГ­Г Гї ГґГіГ­ГЄГ¶ГЁГї
     */
     public static class PartFunction{
     	private int number;
@@ -137,7 +137,7 @@ public abstract class BodyPart extends Sprite implements Serializable {
     	private int skinRequirement;
     	private int meatRequirement;
     	
-    	private boolean isAvalible = false;
+    	private boolean isAvalible = false;//РћС€РёР±РєР° РІ СЃР»РѕРІРµ: available
     	
     	PartFunction(int number, String name, int fatRequirement, int skinRequirement, int meatRequirement) {
     		this.number = number;
