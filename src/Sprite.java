@@ -91,14 +91,15 @@ public class Sprite implements Constants {
 	 *
 	 *used for BodyPart Class
 	 */
-	public Sprite(int width, int height) {
-		this.x = x;
-		this.y = y;
+	public Sprite(int width, int height, int[] pixels) {
+		
 		this.width = width;
 		this.height = height;
 		
 		image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+		
+		this.pixels = pixels;
 	}
 		
 	/*

@@ -158,6 +158,7 @@ public class EvoMain extends Canvas implements Constants, Runnable {
 		for(int i = 0; i < buffData.length; i++) {
 			buffData[i] = (i%3)*i*256 + temp/2;
 		}
+		int b = 5/0;
 		//end
 
 	}

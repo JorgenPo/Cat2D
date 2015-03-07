@@ -3,3 +3,7 @@ Creature + BodyPart
 
 06.03.2015 - BodyPart
 -Сделал спецификацию класса BodyPart
+-Cделал класс BodyPart
+
+07.03.2015 - CenterPart
+08.03.2015 - HeadPart, LimbPart
